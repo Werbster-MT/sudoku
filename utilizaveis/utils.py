@@ -13,6 +13,7 @@ def letras(list):
             print("{:^5}".format(list[letter]), end="")
     print()
 
+
 def converter_letras_em_numeros(letras):
     for letra in range(len(letras)):
         if letras[letra][0].lower() == "a":
@@ -33,13 +34,16 @@ def converter_letras_em_numeros(letras):
             letras[letra][0] = 8
         elif letras[letra][0].lower() == "i":
             letras[letra][0] = 9
+
     return letras
+
 
 def converter_string_para_int(matriz):
     for i in range(len(matriz)):
         for j in range(len(matriz[i])):
             matriz[i][j] = int(matriz[i][j])
     return matriz
+
 
 def ler_dicas(arquivo):
     with open(arquivo, "r") as arq_config:
@@ -60,6 +64,7 @@ def ler_dicas(arquivo):
 
     arq_config.close()
     return dicas
+
 
 def verificar_elemento(lista):
     for elemento in range(len(lista)):
