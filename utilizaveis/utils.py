@@ -17,23 +17,23 @@ def letras(list):
 def converter_letras_em_numeros(letras):
     for letra in range(len(letras)):
         if letras[letra][0].lower() == "a":
-            letras[letra][0] = 1
+            letras[letra][0] = "1"
         elif letras[letra][0].lower() == "b":
-            letras[letra][0] = 2
+            letras[letra][0] = "2"
         elif letras[letra][0].lower() == "c":
-            letras[letra][0] = 3
+            letras[letra][0] = "3"
         elif letras[letra][0].lower() == "d":
-            letras[letra][0] = 4
+            letras[letra][0] = "4"
         elif letras[letra][0].lower() == "e":
-            letras[letra][0] = 5
+            letras[letra][0] = "5"
         elif letras[letra][0].lower() == "f":
-            letras[letra][0] = 6
+            letras[letra][0] = "6"
         elif letras[letra][0].lower() == "g":
-            letras[letra][0] = 7
+            letras[letra][0] = "7"
         elif letras[letra][0].lower() == "h":
-            letras[letra][0] = 8
+            letras[letra][0] = "8"
         elif letras[letra][0].lower() == "i":
-            letras[letra][0] = 9
+            letras[letra][0] = "9"
 
     return letras
 
@@ -64,6 +64,19 @@ def ler_dicas(arquivo):
 
     arq_config.close()
     return dicas
+
+def gerar_indices(dicas):
+    indice_dicas = []
+
+    try:
+        for dica in range(len(dicas)):
+            elemento = [int(dicas[dica][0]) - 1, int(dicas[dica][1]) - 1]
+            indice_dicas.append(elemento)
+
+    except Exception:
+        return
+
+    return indice_dicas
 
 
 def verificar_elemento(lista):

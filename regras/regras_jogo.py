@@ -92,25 +92,35 @@ def validar_jogo(matriz, dicas):
     if len(dicas) >= 1 and len(dicas) <= 80:
         if validar_linhas(matriz) and validar_colunas(matriz) and validar_quadrantes(quadrantes):
             return True
-
+        else:
+            return False
     else:
         return False
 
 
-def validar_formato(jogada):
+def validar_formato(lista):
     try:
-        col_str, lin, num = jogada.split()
+        col_str, lin, num = lista.split()
         col_str = [[col_str]]
         col = converter_letras_em_numeros(col_str)[0][0]
 
         return [col, lin, num]
 
     except Exception:
-        print("Formato invalido!")
-        return
+        return False
 
 
-def validar_jogada():
-    jogada = input().replace(":", ",").replace(",", " ")
+def validar_jogada(jogada):
     resultado = validar_formato(jogada)
-    print(resultado)
+
+    intervalo = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+    if resultado:
+        if resultado[0] not in intervalo or resultado[1] not in intervalo or resultado[2] not in intervalo:
+            # print("Tente novamente!")
+            return False
+
+        else:
+            return resultado
+    else:
+        return False
